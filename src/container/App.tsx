@@ -1,10 +1,26 @@
 import { Container } from '@mui/material'
 import Header from './Header/Header'
 import Main from './Main/Main'
+import { useState } from 'react'
 
 type Props = {}
 
+type TotalPriceProductsProps = {
+    totalPrice: number
+}
+
 const App = (props: Props) => {
+    const [totalPriceProducts, setTotalPriceProducts] =
+        useState<TotalPriceProductsProps>({
+            totalPrice: 0,
+        })
+
+    const buyProduct = (price: number) => {
+        setTotalPriceProducts((prevState) => ({
+            totalPrice: prevState.totalPrice + price,
+        }))
+    }
+
     return (
         <Container
             sx={{
@@ -20,7 +36,10 @@ const App = (props: Props) => {
             }}
         >
             <Header />
-            <Main />
+            <Main
+                totalPriceProducts={totalPriceProducts}
+                buyProduct={buyProduct}
+            />
         </Container>
     )
 }

@@ -1,8 +1,15 @@
 import { Button } from '@mui/material'
+fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+    })
 
-type Props = {}
+type Props = {
+    changeCurrencyUSD: (price: number) => void
+}
 
-const Currency = (props: Props) => {
+const Currency = ({ changeCurrencyUSD }: Props) => {
     return (
         <div>
             <Button
@@ -35,6 +42,7 @@ const Currency = (props: Props) => {
                     color: 'black',
                     borderColor: 'black',
                 }}
+                onClick={() => changeCurrencyUSD}
             >
                 USD
             </Button>

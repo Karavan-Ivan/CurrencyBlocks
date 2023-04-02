@@ -1,67 +1,32 @@
 import { Button } from '@mui/material'
 import Grid from '@mui/material/Grid'
-import Item from '@mui/material/Grid'
-import './Products.scss'
+import productsArray from 'utils/productsArray'
+import ProductsItem from './ProductsItem'
 
-type Props = {}
+type Props = {
+    buyProduct: (price: number) => void
+}
 
-const Products = (props: Props) => {
+const Products = ({ buyProduct }: Props) => {
     return (
-        <Grid container spacing={2} sx={{ margin: '0' }}>
-            <Grid item xs={4}>
-                <Item className="Product">
-                    <h1>Name</h1>
-                    <h3>Type</h3>
-                    <h3>Price</h3>
-                    <Button
-                        variant="outlined"
-                        size="small"
-                        sx={{
-                            borderColor: 'black',
-                            color: 'black',
-                            backgroundColor: 'aqua',
-                        }}
-                    >
-                        Buy
-                    </Button>
-                </Item>
-            </Grid>
-            <Grid item xs={4}>
-                <Item className="Product">
-                    <h1>Name</h1>
-                    <h3>Type</h3>
-                    <h3>Price</h3>
-                    <Button
-                        variant="outlined"
-                        size="small"
-                        sx={{
-                            borderColor: 'black',
-                            color: 'black',
-                            backgroundColor: 'aqua',
-                        }}
-                    >
-                        Buy
-                    </Button>
-                </Item>
-            </Grid>
-            <Grid item xs={4}>
-                <Item className="Product">
-                    <h1>Name</h1>
-                    <h3>Type</h3>
-                    <h3>Price</h3>
-                    <Button
-                        variant="outlined"
-                        size="small"
-                        sx={{
-                            borderColor: 'black',
-                            color: 'black',
-                            backgroundColor: 'aqua',
-                        }}
-                    >
-                        Buy
-                    </Button>
-                </Item>
-            </Grid>
+        <Grid
+            container
+            direction="row"
+            alignItems="stretch"
+            spacing={2}
+            sx={{ margin: '0' }}
+        >
+            {productsArray.map((product) => (
+                <Grid item xs={4}>
+                    <ProductsItem
+                        title={product.title}
+                        description={product.description}
+                        currency={product.currency}
+                        price={product.price}
+                        buyProduct={buyProduct}
+                    />
+                </Grid>
+            ))}
         </Grid>
     )
 }
