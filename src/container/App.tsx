@@ -2,11 +2,16 @@ import { Container } from '@mui/material'
 import Header from './Header/Header'
 import Main from './Main/Main'
 import { useState } from 'react'
+import { Product } from 'utils/productsArray'
 
 type Props = {}
 
 type TotalPriceProductsProps = {
     totalPrice: number
+}
+
+type CurrencyProps = {
+    currency: string
 }
 
 const App = (props: Props) => {
@@ -18,6 +23,30 @@ const App = (props: Props) => {
     const buyProduct = (price: number) => {
         setTotalPriceProducts((prevState) => ({
             totalPrice: prevState.totalPrice + price,
+        }))
+    }
+
+    const [currencyAll, setCurrencyAll] = useState<CurrencyProps>({
+        currency: 'UAH',
+    })
+    const changeCurrencyUSD = (currency: string) => {
+        setCurrencyAll(() => ({
+            currency: 'USD',
+        }))
+    }
+    const changeCurrencyUAH = (currency: string) => {
+        setCurrencyAll(() => ({
+            currency: 'UAH',
+        }))
+    }
+    const changeCurrencyEUR = (currency: string) => {
+        setCurrencyAll(() => ({
+            currency: 'EUR',
+        }))
+    }
+    const changeCurrencyPLN = (currency: string) => {
+        setCurrencyAll(() => ({
+            currency: 'PLN',
         }))
     }
 
@@ -39,6 +68,11 @@ const App = (props: Props) => {
             <Main
                 totalPriceProducts={totalPriceProducts}
                 buyProduct={buyProduct}
+                changeCurrencyUSD={changeCurrencyUSD}
+                changeCurrencyUAH={changeCurrencyUAH}
+                changeCurrencyEUR={changeCurrencyEUR}
+                changeCurrencyPLN={changeCurrencyPLN}
+                currencyAll={currencyAll}
             />
         </Container>
     )

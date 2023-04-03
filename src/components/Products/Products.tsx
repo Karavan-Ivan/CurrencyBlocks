@@ -5,9 +5,11 @@ import ProductsItem from './ProductsItem'
 
 type Props = {
     buyProduct: (price: number) => void
+    changeCurrencyUSD: (currency: string) => void
+    currencyAll: any
 }
 
-const Products = ({ buyProduct }: Props) => {
+const Products = ({ buyProduct, changeCurrencyUSD, currencyAll }: Props) => {
     return (
         <Grid
             container
@@ -21,7 +23,7 @@ const Products = ({ buyProduct }: Props) => {
                     <ProductsItem
                         title={product.title}
                         description={product.description}
-                        currency={product.currency}
+                        currency={currencyAll.currency}
                         price={product.price}
                         buyProduct={buyProduct}
                     />
