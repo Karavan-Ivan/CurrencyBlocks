@@ -5,11 +5,9 @@ fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
         console.log(data)
     })
 
-type Props = {
-    changeCurrencyUSD: (price: number) => void
-}
+type Props = {}
 
-const Currency = ({ changeCurrencyUSD }: Props) => {
+const Currency = (props: Props) => {
     return (
         <div>
             <Button
@@ -42,7 +40,6 @@ const Currency = ({ changeCurrencyUSD }: Props) => {
                     color: 'black',
                     borderColor: 'black',
                 }}
-                onClick={() => changeCurrencyUSD}
             >
                 USD
             </Button>

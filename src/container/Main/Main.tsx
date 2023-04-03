@@ -11,12 +11,9 @@ type Props = {
 }
 
 const Main = ({ totalPriceProducts, buyProduct }: Props) => {
-    const changeCurrencyUSD = () => {
-        price: productsArray.map((product) => product.price * 38)
-    }
     return (
         <>
-            <Currency changeCurrencyUSD={changeCurrencyUSD} />
+            <Currency />
             <Products buyProduct={buyProduct} />
             <TotalPrice totalPriceProducts={totalPriceProducts} />
         </>
