@@ -10,7 +10,9 @@ type Props = {
     changeCurrencyUAH: (currency: string) => void
     changeCurrencyEUR: (currency: string) => void
     changeCurrencyPLN: (currency: string) => void
-    currencyAll: any
+    currencyAll: {
+        currency: string
+    }
 }
 
 const Currency = ({
