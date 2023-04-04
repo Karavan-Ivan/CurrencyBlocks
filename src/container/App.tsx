@@ -12,6 +12,7 @@ type TotalPriceProductsProps = {
 
 type CurrencyProps = {
     currency: string
+    rate: number
 }
 
 const App = (props: Props) => {
@@ -31,25 +32,30 @@ const App = (props: Props) => {
 
     const [currencyAll, setCurrencyAll] = useState<CurrencyProps>({
         currency: currencyStatic,
+        rate: 1,
     })
     const changeCurrencyUSD = (currency: string) => {
         setCurrencyAll(() => ({
             currency: 'USD',
+            rate: 37,
         }))
     }
     const changeCurrencyUAH = (currency: string) => {
         setCurrencyAll(() => ({
             currency: 'UAH',
+            rate: 1,
         }))
     }
     const changeCurrencyEUR = (currency: string) => {
         setCurrencyAll(() => ({
             currency: 'EUR',
+            rate: 40,
         }))
     }
     const changeCurrencyPLN = (currency: string) => {
         setCurrencyAll(() => ({
             currency: 'PLN',
+            rate: 8,
         }))
     }
 

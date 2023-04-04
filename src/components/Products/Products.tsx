@@ -6,9 +6,10 @@ import { access } from 'fs/promises'
 
 type Props = {
     buyProduct: (price: number) => void
-    changeCurrencyUSD: (currency: string) => void
+    changeCurrencyUSD: (currency: string, rate: number) => void
     currencyAll: {
         currency: string
+        rate: number
     }
 }
 
@@ -27,6 +28,7 @@ const Products = ({ buyProduct, changeCurrencyUSD, currencyAll }: Props) => {
                         title={product.title}
                         description={product.description}
                         currency={currencyAll.currency}
+                        priceCard={product.price / currencyAll.rate}
                         price={product.price}
                         buyProduct={buyProduct}
                     />

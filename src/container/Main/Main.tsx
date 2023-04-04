@@ -8,12 +8,13 @@ type Props = {
         totalPrice: number
     }
     buyProduct: (price: number) => void
-    changeCurrencyUSD: (currency: string) => void
-    changeCurrencyUAH: (currency: string) => void
-    changeCurrencyEUR: (currency: string) => void
-    changeCurrencyPLN: (currency: string) => void
+    changeCurrencyUSD: (currency: string, rate: number) => void
+    changeCurrencyUAH: (currency: string, rate: number) => void
+    changeCurrencyEUR: (currency: string, rate: number) => void
+    changeCurrencyPLN: (currency: string, rate: number) => void
     currencyAll: {
         currency: string
+        rate: number
     }
 }
 
@@ -40,7 +41,10 @@ const Main = ({
                 changeCurrencyUSD={changeCurrencyUSD}
                 currencyAll={currencyAll}
             />
-            <TotalPrice totalPriceProducts={totalPriceProducts} />
+            <TotalPrice
+                totalPriceProducts={totalPriceProducts}
+                currencyAll={currencyAll}
+            />
         </>
     )
 }

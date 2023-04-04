@@ -8,6 +8,7 @@ type Props = {
     price: number
     currency: string
     buyProduct: (price: number) => void
+    priceCard: number
 }
 
 const ProductsItem = ({
@@ -16,6 +17,7 @@ const ProductsItem = ({
     price,
     currency,
     buyProduct,
+    priceCard,
 }: Props) => {
     return (
         <Card variant="outlined" className="Product">
@@ -23,7 +25,7 @@ const ProductsItem = ({
                 <h1>{title}</h1>
                 <h3>{description}</h3>
                 <h3>
-                    {currency}: {price}
+                    {currency}: {Math.round(priceCard)}
                 </h3>
             </CardContent>
             <CardActions>

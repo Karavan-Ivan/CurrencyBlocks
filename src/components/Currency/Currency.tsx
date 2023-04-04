@@ -6,12 +6,13 @@ fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
     })
 
 type Props = {
-    changeCurrencyUSD: (currency: string) => void
-    changeCurrencyUAH: (currency: string) => void
-    changeCurrencyEUR: (currency: string) => void
-    changeCurrencyPLN: (currency: string) => void
+    changeCurrencyUSD: (currency: string, rate: number) => void
+    changeCurrencyUAH: (currency: string, rate: number) => void
+    changeCurrencyEUR: (currency: string, rate: number) => void
+    changeCurrencyPLN: (currency: string, rate: number) => void
     currencyAll: {
         currency: string
+        rate: number
     }
 }
 
@@ -32,7 +33,9 @@ const Currency = ({
                     color: 'black',
                     borderColor: 'black',
                 }}
-                onClick={() => changeCurrencyEUR(currencyAll.currency)}
+                onClick={() =>
+                    changeCurrencyEUR(currencyAll.currency, currencyAll.rate)
+                }
             >
                 EUR
             </Button>
@@ -44,7 +47,9 @@ const Currency = ({
                     color: 'black',
                     borderColor: 'black',
                 }}
-                onClick={() => changeCurrencyUAH(currencyAll.currency)}
+                onClick={() =>
+                    changeCurrencyUAH(currencyAll.currency, currencyAll.rate)
+                }
             >
                 UAH
             </Button>
@@ -56,7 +61,9 @@ const Currency = ({
                     color: 'black',
                     borderColor: 'black',
                 }}
-                onClick={() => changeCurrencyUSD(currencyAll.currency)}
+                onClick={() =>
+                    changeCurrencyUSD(currencyAll.currency, currencyAll.rate)
+                }
             >
                 USD
             </Button>
@@ -68,7 +75,9 @@ const Currency = ({
                     color: 'black',
                     borderColor: 'black',
                 }}
-                onClick={() => changeCurrencyPLN(currencyAll.currency)}
+                onClick={() =>
+                    changeCurrencyPLN(currencyAll.currency, currencyAll.rate)
+                }
             >
                 PLN
             </Button>
