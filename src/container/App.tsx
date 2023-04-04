@@ -1,8 +1,9 @@
 import { Container } from '@mui/material'
 import Header from './Header/Header'
 import Main from './Main/Main'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import productsArray, { Product } from 'utils/productsArray'
+import axios from 'axios'
 
 type Props = {}
 
@@ -16,6 +17,12 @@ type CurrencyProps = {
 }
 
 const App = (props: Props) => {
+    axios
+        .get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+        .then((res) => {
+            console.log(res.data)
+        })
+
     const currencyStaticArr = productsArray.map((product) => product.currency)
     const currencyStatic = currencyStaticArr[1]
 
