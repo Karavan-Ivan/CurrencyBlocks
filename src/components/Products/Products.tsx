@@ -1,8 +1,6 @@
-import { Button } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import productsArray from 'utils/productsArray'
 import ProductsItem from './ProductsItem'
-import { access } from 'fs/promises'
 
 type Props = {
     buyProduct: (price: number) => void

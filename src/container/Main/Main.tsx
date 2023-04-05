@@ -1,7 +1,6 @@
 import Currency from 'components/Currency/Currency'
 import Products from 'components/Products/Products'
 import TotalPrice from 'components/TotalPrice/TotalPrice'
-import productsArray from 'utils/productsArray'
 
 type Props = {
     totalPriceProducts: {
